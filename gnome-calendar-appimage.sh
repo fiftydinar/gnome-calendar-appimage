@@ -47,6 +47,10 @@ find ./share/locale -type f
 # Fix hardcoded path for locale
 sed -i 's|/usr/share|././/share|g' ./shared/bin/gnome-calendar
 
+# Fix hardcoded path for 'libcamel' libraries from 'evolution-data-server'
+sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libcamel*
+echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./.env
+
 # Deploy Gstreamer & evolution-data-server binaries manually, as sharun can only handle libraries in /lib/ for now
 echo "Deploying evolution-data-server binaries..."
 cp -r /usr/lib/evolution-data-server ./shared/lib/evolution-data-server
