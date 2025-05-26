@@ -36,7 +36,8 @@ wget "$SHARUN" -O ./sharun-aio
 chmod +x ./sharun-aio
 xvfb-run -a -- ./sharun-aio l -p -v -e -s -k \
 	/usr/bin/gnome-calendar \
-        /usr/lib/evolution-data-server/*/*
+        /usr/lib/evolution-data-server/*/* \
+	/usr/lib/libgweather*
 rm -f ./sharun-aio
 
 # Copy locale manually, as sharun doesn't do that at the moment
@@ -51,7 +52,8 @@ sed -i 's|/usr/share|././/share|g' ./shared/bin/gnome-calendar
 sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libcamel*
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./.env
 
-# Fix hardcoded path for 'libgweather' libraries
+# Copy Locations.bin & fix hardcoded path for 'libgweather' libraries
+cp -r /usr/lib/libgweather*/ ./shared/lib/
 sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libgweather*
 
 # Deploy Gstreamer & evolution-data-server binaries manually, as sharun can only handle libraries in /lib/ for now
