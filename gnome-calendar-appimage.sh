@@ -51,6 +51,9 @@ sed -i 's|/usr/share|././/share|g' ./shared/bin/gnome-calendar
 sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libcamel*
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./.env
 
+# Fix hardcoded path for 'libgweather' libraries
+sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libgweather*
+
 # Deploy Gstreamer & evolution-data-server binaries manually, as sharun can only handle libraries in /lib/ for now
 echo "Deploying evolution-data-server binaries..."
 cp -r /usr/lib/evolution-data-server ./shared/lib/evolution-data-server
