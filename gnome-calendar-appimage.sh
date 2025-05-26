@@ -53,8 +53,8 @@ sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libcamel*
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./.env
 
 # Copy Locations.bin & fix hardcoded path for 'libgweather' libraries
-cp -r /usr/lib/libgweather*/ ./shared/lib/
 sed -i 's|/usr/lib|././/lib|g' ./shared/lib/libgweather*
+cp -r /usr/lib/libgweather*/ ./shared/lib/
 
 # Deploy Gstreamer & evolution-data-server binaries manually, as sharun can only handle libraries in /lib/ for now
 echo "Deploying evolution-data-server binaries..."
