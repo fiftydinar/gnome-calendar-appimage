@@ -1,5 +1,5 @@
 # gnome-calendar-appimage
-Test of Gnome Calendar AppImage, not intended for daily-driving.
+Test of Gnome Calendar AppImage, not intended for daily-driving yet.
 
 ## Known issues
 - Some icons are not available
