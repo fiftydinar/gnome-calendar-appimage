@@ -34,8 +34,6 @@ StartupWMClass=gnome-calendar
 wget --retry-connrefused --tries=30 "$SHARUN" -O ./quick-sharun
 chmod +x ./quick-sharun
 ./quick-sharun /usr/bin/gnome-calendar /usr/lib/evolution-data-server/*/* /usr/lib/libgweather*
-cp -vr /usr/share/vala ./AppDir/share/
-cp -vr /usr/share/devhelp ./AppDir/share/
 
 ## Fix hardcoded path for 'libcamel' libraries from 'evolution-data-server'
 sed -i 's|/usr/lib|././/lib|g' ./AppDir/shared/lib/libcamel*
