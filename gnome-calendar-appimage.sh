@@ -8,7 +8,6 @@ ICON=/usr/share/icons/hicolor/scalable/apps/org.gnome.Calendar.svg
 DESKTOP=/usr/share/applications/org.gnome.Calendar.desktop
 URUNTIME="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/uruntime2appimage.sh"
 SHARUN="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/quick-sharun.sh"
-UPDATER="https://github.com/pkgforge-dev/AppImageUpdate-Enhanced-Edition/releases/latest/download/appimageupdatetool+validate-$ARCH.AppImage"
 
 VERSION=$(pacman -Q "$PACKAGE" | awk 'NR==1 {print $2; exit}')
 [ -n "$VERSION" ] && echo "$VERSION" > ~/version
@@ -50,7 +49,7 @@ cp -r /usr/lib/evolution-data-server ./AppDir/shared/lib/evolution-data-server
 echo "Sharunning evolution-data-server bins..."
 bins_to_find="$(find ./AppDir/shared/lib/ -exec file {} \; | grep -i 'elf.*executable' | awk -F':' '{print $1}')"
 for bin in $bins_to_find; do
-	mv -v "$bin" ./AppDir/shared/bin && ln ./sharun "$bin"
+	mv -v "$bin" ./AppDir/shared/bin && ln ./AppDir/sharun "$bin"
 	echo "Sharuned $bin"
 done
 
