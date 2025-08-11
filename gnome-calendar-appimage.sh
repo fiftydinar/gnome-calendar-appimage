@@ -53,7 +53,7 @@ for bin in $bins_to_find; do
 	echo "Sharuned $bin"
 done
 
-./quick-sharun l -g
+./AppDir/sharun l -g
 
 ## Copy locale manually, as sharun doesn't do that at the moment
 cp -vr /usr/lib/locale           ./AppDir/shared/lib
